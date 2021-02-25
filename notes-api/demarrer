@@ -85,3 +85,13 @@ npx aws-api-gateway-cli-test \
 git add .
 git commit -m "Adding auth to our Serverless API"
 git push
+
+mv env.example .env
+** create billing.js
+serverless invoke local --function billing --path mocks/billing-event.json
+
+serverless deploy
+
+git add .
+git commit -m "Adding a billing API"
+git push
