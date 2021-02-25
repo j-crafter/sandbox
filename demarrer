@@ -98,3 +98,17 @@ git commit -m "Adding a billing API"
 git push
 
 npm install --save-dev jest
+npm test
+
+git add .
+git commit -m "Adding unit tests to our Serverless API"
+git push
+
+serverless invoke local --function list --path mocks/list-event.json
+
+** add CORS to errors in API gateway
+serverless deploy
+
+git add .
+git commit -m "Adding CORS to our Serverless API"
+git push
