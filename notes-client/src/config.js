@@ -1,4 +1,6 @@
 const config = {
+    MAX_ATTACHMENT_SIZE: 5000000,
+    STRIPE_KEY: "pk_test_51IOlX6G2oVGaUnD8RCGKw5Q7lm2b0hYFWyk1hPxMeyrfLPIVOGec5512BpqbM0XdXpxjBLeDnnPDsis6iRAk8Agm00Y9IQrs21",
     s3: {
         REGION: "us-east-1",
         BUCKET: "notes-app-upload-jri",
