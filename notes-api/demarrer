@@ -13,3 +13,35 @@ npm install uuid@7.0.3 --save
 
 serverless invoke local --function hello
 serverless deploy
+** ou : serverless deploy --aws-profile myProfile
+
+** create gir repo https://github.com/aresthya/notes-api.git
+git init
+git add .
+git commit -m "First commit"
+git remote add origin https://github.com/aresthya/notes-api.git
+git remote -v
+git push -u origin master
+
+** create dynamodb notes
+** create s3 bucket notes-app-upload-jri
+
+** create create.js
+serverless invoke local --function create --path mocks/create-event.json
+** get note id for next service
+
+** create get.js
+serverless invoke local --function get --path mocks/get-event.json
+
+** create list.js
+serverless invoke local --function list --path mocks/list-event.json
+
+** create update.js
+serverless invoke local --function update --path mocks/update-event.json
+
+** create delete.js
+serverless invoke local --function delete --path mocks/delete-event.json
+
+serverless deploy
+** ou : serverless deploy --aws-profile myProfile
+** deploy une seule fonction : serverless deploy function -f list
