@@ -1,17 +1,12 @@
-Service Information
-service: notes-api
-stage: prod
-region: us-east-1
-stack: notes-api-prod
-resources: 11
-api keys:
-  None
-endpoints:
-  GET - https://0f7jby961h.execute-api.us-east-1.amazonaws.com/prod/hello
-functions:
-  hello: notes-api-prod-hello
-layers:
-  None
+Bucket name: notes-app-upload-jri
+
+User pool
+    Pool Id us-east-1_BEzn8Gnmh
+    Pool ARN arn:aws:cognito-idp:us-east-1:659462323303:userpool/us-east-1_BEzn8Gnmh
+App client id: 7fli9d95krui0a4vq2d57fqe91
+Domain name: notes-app-jri
+
+Identity pool ID: us-east-1:ff34ba85-9ca8-4709-91b6-7df0797b1cc3
 
 Service Information
 service: notes-api

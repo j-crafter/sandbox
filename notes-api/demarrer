@@ -45,3 +45,43 @@ serverless invoke local --function delete --path mocks/delete-event.json
 serverless deploy
 ** ou : serverless deploy --aws-profile myProfile
 ** deploy une seule fonction : serverless deploy function -f list
+
+git add .
+git commit -m "Adding our Serverless API"
+git push
+
+** create user pool
+** add app client
+
+** create user
+aws cognito-idp sign-up \
+  --region us-east-1 \
+  --client-id 7fli9d95krui0a4vq2d57fqe91 \
+  --username admin@example.com \
+  --password Passw0rd!
+** verify user
+aws cognito-idp admin-confirm-sign-up \
+  --region us-east-1 \
+  --user-pool-id us-east-1_BEzn8Gnmh \
+  --username admin@example.com
+
+** update services with user id
+serverless deploy
+
+** Tests the APIs
+npx aws-api-gateway-cli-test \
+--username='admin@example.com' \
+--password='Passw0rd!' \
+--user-pool-id='us-east-1_BEzn8Gnmh' \
+--app-client-id='7fli9d95krui0a4vq2d57fqe91' \
+--cognito-region='us-east-1' \
+--identity-pool-id='us-east-1:ff34ba85-9ca8-4709-91b6-7df0797b1cc3' \
+--invoke-url='https://gopa9skwpl.execute-api.us-east-1.amazonaws.com/prod' \
+--api-gateway-region='us-east-1' \
+--path-template='/notes' \
+--method='POST' \
+--body='{"content":"test api hello world","attachment":"hello.jpg"}'
+
+git add .
+git commit -m "Adding auth to our Serverless API"
+git push
