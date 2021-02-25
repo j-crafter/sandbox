@@ -1,0 +1,15 @@
+** install python 2.6.5+ ou 3.3+
+** install pip
+sudo pip install awscli
+aws configure
+npm install serverless -g
+
+serverless install --url https://github.com/AnomalyInnovations/serverless-nodejs-starter --name notes-api
+cd notes-api
+npm install
+npm install aws-sdk --save-dev
+npm install uuid@7.0.3 --save
+** editer serverless.yml avec : runtime: nodejs12.x et stage: prod
+
+serverless invoke local --function hello
+serverless deploy
