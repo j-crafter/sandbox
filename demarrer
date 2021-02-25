@@ -13,3 +13,4 @@ git push -u origin master
 npm install react-bootstrap@1.4.0 react-icons@3.11.0 --save
 npm install react-router-dom@5.2.0 --save
 npm install react-router-bootstrap --save
+npm install aws-amplify --save
