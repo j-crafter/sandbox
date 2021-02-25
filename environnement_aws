@@ -37,3 +37,7 @@ Stripe clé publique
 pk_test_51IOlX6G2oVGaUnD8RCGKw5Q7lm2b0hYFWyk1hPxMeyrfLPIVOGec5512BpqbM0XdXpxjBLeDnnPDsis6iRAk8Agm00Y9IQrs21
 
 Stripe clé privée dans le fichier .env
+
+Déploiement sur Netlify
+https://keen-bhaskara-9c0e8f.netlify.app/
+https://notes-app-reactjs.netlify.app/
