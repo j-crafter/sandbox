@@ -1,0 +1,6 @@
+npx create-react-app notes-app-client --use-npm
+cd notes-app-client
+npm start
+
+**create git repo https://github.com/aresthya/notes-client.git
+
