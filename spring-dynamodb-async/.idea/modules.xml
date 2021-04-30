@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/spring-dynamodb-async/dynamodb-spring.iml" filepath="$PROJECT_DIR$/spring-dynamodb-async/dynamodb-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/micronaut-dynamodb-async/micronaut-dynamodb-async.iml" filepath="$PROJECT_DIR$/micronaut-dynamodb-async/micronaut-dynamodb-async.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-dynamodb-async.iml" filepath="$PROJECT_DIR$/.idea/spring-dynamodb-async.iml" />
+    </modules>
+  </component>
+</project>
