@@ -1,0 +1,114 @@
+** install python 2.6.5+ ou 3.3+
+** install pip
+sudo pip install awscli
+aws configure
+npm install serverless -g
+
+serverless install --url https://github.com/AnomalyInnovations/serverless-nodejs-starter --name notes-api
+cd notes-api
+npm install
+npm install aws-sdk --save-dev
+npm install uuid@7.0.3 --save
+** editer serverless.yml avec : runtime: nodejs12.x et stage: prod
+
+serverless invoke local --function hello
+serverless deploy
+** ou : serverless deploy --aws-profile myProfile
+
+** create gir repo https://github.com/aresthya/notes-api.git
+git init
+git add .
+git commit -m "First commit"
+git remote add origin https://github.com/aresthya/notes-api.git
+git remote -v
+git push -u origin master
+
+** create dynamodb notes
+** create s3 bucket notes-app-upload-jri
+
+** create create.js
+serverless invoke local --function create --path mocks/create-event.json
+** get note id for next service
+
+** create get.js
+serverless invoke local --function get --path mocks/get-event.json
+
+** create list.js
+serverless invoke local --function list --path mocks/list-event.json
+
+** create update.js
+serverless invoke local --function update --path mocks/update-event.json
+
+** create delete.js
+serverless invoke local --function delete --path mocks/delete-event.json
+
+serverless deploy
+** ou : serverless deploy --aws-profile myProfile
+** deploy une seule fonction : serverless deploy function -f list
+
+git add .
+git commit -m "Adding our Serverless API"
+git push
+
+** create user pool
+** add app client
+
+** create user
+aws cognito-idp sign-up \
+  --region us-east-1 \
+  --client-id 7fli9d95krui0a4vq2d57fqe91 \
+  --username admin@example.com \
+  --password Passw0rd!
+** verify user
+aws cognito-idp admin-confirm-sign-up \
+  --region us-east-1 \
+  --user-pool-id us-east-1_BEzn8Gnmh \
+  --username admin@example.com
+
+** update services with user id
+serverless deploy
+
+** Tests the APIs
+npx aws-api-gateway-cli-test \
+--username='admin@example.com' \
+--password='Passw0rd!' \
+--user-pool-id='us-east-1_BEzn8Gnmh' \
+--app-client-id='7fli9d95krui0a4vq2d57fqe91' \
+--cognito-region='us-east-1' \
+--identity-pool-id='us-east-1:ff34ba85-9ca8-4709-91b6-7df0797b1cc3' \
+--invoke-url='https://gopa9skwpl.execute-api.us-east-1.amazonaws.com/prod' \
+--api-gateway-region='us-east-1' \
+--path-template='/notes' \
+--method='POST' \
+--body='{"content":"test api hello world","attachment":"hello.jpg"}'
+
+git add .
+git commit -m "Adding auth to our Serverless API"
+git push
+
+mv env.example .env
+npm install --save stripe
+** create billing.js
+serverless invoke local --function billing --path mocks/billing-event.json
+
+serverless deploy
+
+git add .
+git commit -m "Adding a billing API"
+git push
+
+npm install --save-dev jest
+npm test
+
+git add .
+git commit -m "Adding unit tests to our Serverless API"
+git push
+
+serverless invoke local --function list --path mocks/list-event.json
+
+** add CORS to errors in API gateway
+serverless deploy
+
+git add .
+git commit -m "Adding CORS to our Serverless API"
+git push
