@@ -1,0 +1,16 @@
+npx create-react-app notes-app-client --use-npm
+cd notes-app-client
+npm start
+
+**create git repo https://github.com/aresthya/notes-client.git
+
+git add .
+git commit -m "First commit"
+git remote add origin https://github.com/aresthya/notes-client.git
+git remote -v
+git push -u origin master
+
+npm install react-bootstrap@1.4.0 react-icons@3.11.0 --save
+npm install react-router-dom@5.2.0 --save
+npm install react-router-bootstrap --save
+npm install aws-amplify --save
